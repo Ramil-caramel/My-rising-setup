@@ -1,0 +1,87 @@
+configuration {
+    modi: "drun,run";
+    font: "JetBrainsMono Nerd Font 11";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    drun-display-format: "{name}";
+    
+    // Скрываем лишние префиксы
+    display-drun: "󰀻 ";
+    display-run: " ";
+}
+
+* {
+    /* Цвета Nord с прозрачностью (в конце добавлено cc) */
+    bg:            #2e3440cc; /* Основной фон панели */
+    bg-selected:   #434c5ecc; /* Фон выбранного пункта */
+    fg:            #d8dee9;   /* Обычный текст */
+    fg-selected:   #eceff4;   /* Текст выбранного пункта */
+    accent:        #88c0d0;   /* Цвет иконки поиска */
+    
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+window {
+    background-color: @bg;
+    border:           1px;
+    border-color:     #4c566a;
+    border-radius:    12px;
+    width:            550px;
+    padding:          15px;
+    
+    /* Центрирование окна в Wayland */
+    location:         center;
+    anchor:           center;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 10px;
+}
+
+inputbar {
+    background-color: @bg-selected;
+    border-radius:    8px;
+    padding:          10px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    placeholder: "Поиск...";
+    placeholder-color: #4c566a;
+    text-color: @fg-selected;
+}
+
+listview {
+    lines:        8;
+    columns:      1;
+    fixed-height: true;
+    spacing:      4px;
+}
+
+element {
+    padding:       8px;
+    border-radius: 6px;
+}
+
+/* Элемент при наведении или выборе стрелочками */
+element selected {
+    background-color: @bg-selected;
+    text-color:       @fg-selected;
+}
+
+/* Иконка приложения */
+element-icon {
+    size:    28px;
+    margin:  0px 12px 0px 0px;
+}
+
+/* Текст приложения */
+element-text {
+    vertical-align: 0.5;
+}

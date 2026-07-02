@@ -1,0 +1,105 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: rgba(46, 52, 64, 0.85); /* Темный фон Nord с легкой прозрачностью */
+  color: #d8dee9;
+  border-bottom: 1px solid #181825;
+  border-radius: 10px;
+}
+
+/* Общие отступы для всех элементов на панели */
+#clock,
+#tray,
+#battery,
+#cpu,
+#memory,
+#network,
+#temperature,
+#pulseaudio,
+#backlight {
+  background: transparent;
+  padding: 0px 6px;
+  margin: 0px 4px;
+}
+
+/* Левый блок (Рабочие столы Niri) */
+#workspaces {
+  margin-left: 5px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: #e5e9f0;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  background-color: rgba(236, 239, 244, 0.2);
+  color: #ffffff;
+}
+
+#workspaces button.active {
+  background: #5e81ac; /* Выделение активного воркспейса синим */
+  color: #ffffff;
+}
+
+#workspaces button.urgent {
+  background-color: #bf616a;
+}
+
+/* Кастомизация цветов для каждого модуля (Палитра Nord) */
+#clock {
+  font-size: 15px;
+  font-weight: bold;
+  color: #eceff4;
+}
+
+#network {
+  color: #a3be8c; /* Приятный зеленый */
+}
+
+#temperature {
+  color: #81a1c1; /* Светло-синий */
+}
+
+#temperature.critical {
+  color: #bf616a; /* Красный при перегреве */
+}
+
+#cpu {
+  color: #b48ead; /* Фиолетовый */
+}
+
+#memory {
+  color: #88c0d0; /* Бирюзовый */
+}
+
+#backlight {
+  color: #8fbcbb;
+}
+
+#pulseaudio {
+  color: #81a1c1;
+}
+
+#battery {
+  color: #a3be8c;
+}
+
+#battery.critical {
+  color: #bf616a;
+}
+
+#tray {
+  padding: 0px 4px;
+}
+
+.modules-left,
+.modules-right,
+.modules-center {
+  padding: 5px 6px;
+}

@@ -1,0 +1,94 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 0,
+  "spacing": 4,
+  "margin-top": 12,
+  "margin-bottom": 5,
+  "margin-left": 150,
+  "margin-right": 150,
+  
+  // OLED-friendly: панель скрывается сама. 
+  // Появляется при наведении мыши или по хоткею
+  "mode": "hide", 
+  "exclusive": false,
+
+  // Распределение модулей по зонам
+  "modules-left": ["niri/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray", 
+    "network", 
+    "temperature", 
+    "cpu", 
+    "memory", 
+    "backlight", 
+    "pulseaudio", 
+    "battery"
+  ],
+
+  // --- НАСТРОЙКИ МОДУЛЕЙ ---
+
+  "niri/workspaces": {
+    "format": "{index}"
+  },
+
+  "clock": {
+    "format": "󱑒  {:%d/%m/%Y %H:%M}",
+    "interval": 1,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "network": {
+    "format-wifi": "   {essid}",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "󰖪  No Internet",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": "{essid} ({signaldBm}dBm)"
+  },
+
+  "temperature": {
+    "thermal-zone": 2, // Если не показывает, замени на 0 или 1
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C"
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 2
+  },
+
+  "memory": {
+    "format": "   {percentage}%",
+    "interval": 2
+  },
+
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", "󰛨"]
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "scroll-step": 5,
+    "format-icons": {
+        "headphone": "",
+        "default": ["", "", ""]
+      }
+  },
+
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 5
+  },
+
+  "tray": {
+    "spacing": 12
+  }
+}
