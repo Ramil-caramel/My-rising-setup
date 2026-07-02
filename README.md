@@ -3,6 +3,8 @@
 
 ## NIRI
 
+лежит в _.config/niri/config.kdl_
+
 ```
 layout "us,ru"
 options "grp:caps_toggle,grp:win_space_toggle,grp_led:caps"
@@ -128,7 +130,69 @@ Mod+MouseRight{ focus-column-right; }
 
 ## Kitty
 
+лежит в _.config/kitty/kitty.conf_
+
+Тут я по факту кроме цветов и прозрачности ничего не менял
+
+```
+background            #2e3440
+foreground            #d8dee9
+selection_background  #434c5e
+selection_foreground  #eceff4
+url_color             #88c0d0
+cursor                #81a1c1
+```
+
+`background	#2e3440` (тёмно-синий)	Фон всей области терминала (подложка).
+
+`foreground	#d8dee9` (светло-серый)	Цвет текста по умолчанию.
+
+`selection_background	#434c5e` (чуть светлее фона)	Цвет фона при выделении текста.
+
+`selection_foreground	#eceff4` (почти белый)	Цвет выделенного текста.
+
+`url_color	#88c0d0` (бирюзовый)	Цвет подсветки URL-ссылок.
+
+`cursor	#81a1c1` (светло-голубой) Цвет курсора.
+
+```
+background_opacity 0.88
+background_blur    1
+```
+
+Это прозрачность и размытие.
+
+```
+color0 #3b4252
+color8 #4c566a
+
+color1 #bf616a
+color9 #bf616a
+
+color2 #a3be8c
+color10 #a3be8c
+
+color3 #ebcb8b
+color11 #d08770
+
+color4 #5e81ac
+color12 #81a1c1
+
+color5 #b48ead
+color13 #b48ead
+
+color6 #88c0d0
+color14 #8fbcbb
+
+color7 #e5e9f0
+color15 #eceff4
+```
+
+Ну тут просто цвета поменял для вайба.
+
 ## Rofi
+
+лежит в _.config/rofi/config.rasi_
 
 Что такое .desktop-файл
 
@@ -220,7 +284,7 @@ text
 󰀻 [поле ввода]
 
 То есть это просто украшение, чтобы визуально понять, что вы сейчас ищете приложения, а не вводите команду.
-3. display-run " " — иконка режима команд (промпт для run)
+display-run " " — иконка режима команд (промпт для run)
 
 Что это:
 Аналогично предыдущему, но для режима run (ручной ввод команд). По умолчанию там было бы RUN >, а теперь будет иконка терминала (символ ).
@@ -315,3 +379,53 @@ inputbar {
 `element-text` — текст названия приложения.
 
 ## Waybar
+
+лежит в _.config/waybar/config.jsonc_ , а стили в _.config/waybar/style.css_  
+
+```
+{
+  "layer": "top",
+  "position": "top",
+  "height": 0,
+  "spacing": 4,
+  "margin-top": 12,
+  "margin-bottom": 5,
+  "margin-left": 150,
+  "margin-right": 150,
+  
+  "mode": "hide", 
+  "exclusive": false,
+}
+```
+
+`"layer": "top"` - Размещает панель в слое TOP протокола wlr-layer-shell (поверх обычных окон, но под всплывающими оверлеями).
+
+`"position": "top"` - Физическое расположение на экране — сверху.
+
+`"height": 0`	Автоматическая высота (подстраивается под содержимое). Если задать число, будет фиксированная.
+
+`"spacing": 4`	Расстояние между модулями в пикселях.	
+
+`margin-*`	12 (сверху), 5 (снизу), 150 (слева/справа)	Внешние отступы панели от краёв экрана. Слева и справа по 150px — панель не растягивается на всю ширину, а имеет «воздух» по бокам.	
+
+`"mode": "hide"` - Панель скрыта по умолчанию (OLED-режим). Появляется при наведении мыши на край экрана или по нажатию хоткея (обычно Mod+H).	<span style="color:red">По факту не работает</span>
+
+<span style="color:red">Я ее просто выключаю на MOD + W когда не нужно.</span>
+
+```
+  "modules-left": ["niri/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray", "network", "temperature", "cpu", "memory", 
+    "backlight", "pulseaudio", "battery"
+  ],
+```
+Модули сгруппированы в три области (слева, по центру, справа).
+
+- Слева — только рабочие пространства Niri.
+
+- Центр — часы.
+
+- Справа — системные индикаторы (трей, сеть, температура, ЦП, память, яркость, звук, батарея).
+
+Дальше идёт формат каждого из модулей (трей это фоновые приложения), а также их css конфиг. 
