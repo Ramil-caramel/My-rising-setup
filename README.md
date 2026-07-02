@@ -10,10 +10,13 @@ layout "us,ru"
 options "grp:caps_toggle,grp:win_space_toggle,grp_led:caps"
 ```
 
-`layout "us,ru"` - языки используемые для ввода
-`options ""` - строка специальных XKB-флагов
-`grp:caps_toggle,grp:win_space_toggle` - переключение раскладки на CAPS LOCK и win+ space
-`grp_led:caps` - включет лампочку когда активна втор ая группа, то есть русский язык
+`layout "us,ru"` - языки используемые для ввода.
+
+`options ""` - строка специальных XKB-флагов.
+
+`grp:caps_toggle,grp:win_space_toggle` - переключение раскладки на CAPS LOCK и win+ space.
+
+`grp_led:caps` - включет лампочку когда активна втор ая группа, то есть русский язык.
 
 Что такое XKB - Система управления клавиатурой в Linux/Unix. Превращает скан-коды клавиш в символы, обрабатывает раскладки, модификаторы и индикаторы.
 
@@ -29,7 +32,8 @@ layout {
     ...
 }
 ```
-`gaps 16` - отступы между окнами и границами
+`gaps 16` - Отступы между окнами и границами.
+
 `background-color "transparent"` - Устанавливает цвет фона рабочего пространства (пространства за окнами) как полностью прозрачный. Чтобы кореутно отобрадались обои.
 
 ```
@@ -51,11 +55,10 @@ spawn-at-startup "waybar"
 spawn-at-startup "kitty"
 spawn-at-startup "throne"
 spawn-at-startup "mpvpaper" "-p" "-o" "no-audio hwdec=auto loop panscan=1.0" "*" "~/Pictures/furina.mp4"
-
 ```
 Запускает при старте Niri: waybar, kitty, throne, mpvpaper
 
-<span style="color:red">Чтобы нормально работало не забудь скачать mpvpaper и указать путь к обоям</span>
+*<span style="color:red">Чтобы нормально работало не забудь скачать mpvpaper и указать путь к обоям</span>*
 
 `spawn-at-startup "mpvpaper" "-p" "-o" "no-audio hwdec=auto loop panscan=1.0" "*" "~/Pictures/furina.mp4` 
 
@@ -204,15 +207,15 @@ color15 #eceff4
 
 Основные ключи:
 
-    `Type=Application` — указывает, что это приложение.
+`Type=Application` — указывает, что это приложение.
 
-    `Name=Firefox` — имя приложения, которое вы видите в меню.
+`Name=Firefox` — имя приложения, которое вы видите в меню.
 
-    `Exec=firefox %u` — команда для запуска программы.
+`Exec=firefox %u` — команда для запуска программы.
 
-    `Icon=firefox` — путь к иконке приложения.
+`Icon=firefox` — путь к иконке приложения.
 
-    `Categories=Network;WebBrowser;` — категории для отображения в меню.
+`Categories=Network;WebBrowser;` — категории для отображения в меню.
 
 Назначение: Благодаря этим файлам ваша система знает, какие программы установлены, как их запускать, какие у них иконки и в каких категориях меню их показывать
 
